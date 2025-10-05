@@ -28,3 +28,7 @@ HERE IS THE CABLE THAT YOU NEED:
 
 <img width="254" height="254" alt="Screenshot 2025-10-05 194550" src="https://github.com/user-attachments/assets/50e46821-58db-432e-8aaa-59b96b9adecd" />
 
+VR GAMES WITH NO ANTICHEAT:
+
+For a list of vr games with no anticheat, please go to the file gameswithoutanticheat.txt. There you will find a huge list of games that has no anticheat thats updated regulary!
+
