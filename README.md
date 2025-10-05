@@ -7,7 +7,9 @@ TABLE OF CONTENTS:
 
 1. Our Website
 2. How to start modding in vr
-3. Random
+3. Vr games with no anticheat
+4. Vr games that I have modded
+5. Random
 
 For our website, plesae go to this link: https://jyoeymama.github.io/Modders-United-Documentation/
 
