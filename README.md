@@ -24,8 +24,6 @@ Here is a link to download sidequest: https://sidequestvr.com/
 
 Here is the link for questpatcher: https://github.com/Lauriethefish/QuestPatcher
 
-Here is the link to the cable that you need: https://www.amazon.com/Syntech-Compatible-Transfer-Charging-Headset/dp/B098399X91/ref=pd_sbs_d_sccl_2_1/134-9094380-2013046?pd_rd_w=rd9Yw&content-id=amzn1.sym.2cd14f8d-eb5c-4042-b934-4a05eafd2874&pf_rd_p=2cd14f8d-eb5c-4042-b934-4a05eafd2874&pf_rd_r=ATDBKAG1RX1A99STWVJT&pd_rd_wg=9o3FQ&pd_rd_r=4ba6c3c3-df37-4fe5-b148-8e703bf8676c&pd_rd_i=B098399X91&psc=1
-
 HERE IS THE CABLE THAT YOU NEED:
 
 <img width="254" height="254" alt="Screenshot 2025-10-05 194550" src="https://github.com/user-attachments/assets/50e46821-58db-432e-8aaa-59b96b9adecd" />
