@@ -11,5 +11,14 @@ TABLE OF CONTENTS:
 4. Vr games that I have modded
 5. Random
 
+1. OUR WEBSITE
+
 For our website, plesae go to this link: https://jyoeymama.github.io/Modders-United-Documentation/
+
+2. HOW TO START MODDING IN VR
+
+Vr modding is some of the most fun challenge that I have ever had. Modding in vr is very complicated but can be done! Mods in games like gorilla tag are already popular and open source! Modding a game in vr usually begins with have some basic knowledge of c# and c++. Most vr games these days are coded in c# and c++, therefore you must make your mods in the same language as the game! When I start modding a game of my choiche I usually like to make sure that I have 1. a computer or laptop, 2. a usb 3.0 cable, and 3. any vr headset of your choice. The usb 3.0 cable is on amazon for as low as $15. Here is an example picture of the right cable that you need (it must have this weird end). When I have all that ready I make sure to have sidequest installed as well as a modding framework of your choice (I personally use questpatcher) Once you have sidequest installed as well as a modding framework, its time to start modding! creating a mod is a difficult task but I have found that looking at someones premade mod helps a lot for me to better understand where to start making my mod and making the main works of my mod. Then I just take that mod and compile it into a .dll or a .qmod and boom! you have sucessfully modded a vr game! Remember, this works on almost any vr game! Goodluck and happy modding!
+
+HERE IS THE CABLE THAT YOU NEED:
+<img width="254" height="254" alt="Screenshot 2025-10-05 194550" src="https://github.com/user-attachments/assets/50e46821-58db-432e-8aaa-59b96b9adecd" />
 
