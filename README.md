@@ -9,7 +9,8 @@ TABLE OF CONTENTS:
 2. How to start modding in vr
 3. Vr games with no anticheat
 4. Vr games that I have modded
-5. Random
+5. How to download an APK of a vr game
+6. Random
 
 1. OUR WEBSITE
 
