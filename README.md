@@ -32,3 +32,10 @@ VR GAMES WITH NO ANTICHEAT:
 
 For a list of vr games with no anticheat, please go to the file gameswithoutanticheat.txt. There you will find a huge list of games that has no anticheat thats updated regulary!
 
+VR GAMES THAT I HAVE MODDED:
+
+I have modded vr games like gorilla tag and yeeps (and a handful of gorilla tag ripoffs) WORK IN PROGRESS.
+
+HOW TO DOWNLOAD THE APK OF A VR GAME:
+
+RANDOM:
