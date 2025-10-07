@@ -91,3 +91,5 @@ package:/data/app/com.jyomama28isthebest-1/base.apk
 After downloading your apk (it will be named base.apk at the start but thats totally normal) you can rename it to anything you like! just make sure to change the end from .apk to .zip and there you will have all the asset files and source code of that certian game! You have sucessfully installed an apk of a game onto your pc! :) Remember, have fun and happy hacking!
 
 RANDOM:
+
+JYOMAMA28 IS THE KING OF VR HACKING! MODDERS UNITED IS ON TOP!
