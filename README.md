@@ -1,6 +1,18 @@
 # Modders-United-Documentation
 <img width="254" height="254" alt="Modders United" src="https://github.com/user-attachments/assets/2d4b0234-1a47-4078-871b-3431672727bb" />
 
+```
+ __       __                  __        __                                      __    __            __    __                      __ 
+/  \     /  |                /  |      /  |                                    /  |  /  |          /  |  /  |                    /  |
+$$  \   /$$ |  ______    ____$$ |  ____$$ |  ______    ______    _______       $$ |  $$ | _______  $$/  _$$ |_     ______    ____$$ |
+$$$  \ /$$$ | /      \  /    $$ | /    $$ | /      \  /      \  /       |      $$ |  $$ |/       \ /  |/ $$   |   /      \  /    $$ |
+$$$$  /$$$$ |/$$$$$$  |/$$$$$$$ |/$$$$$$$ |/$$$$$$  |/$$$$$$  |/$$$$$$$/       $$ |  $$ |$$$$$$$  |$$ |$$$$$$/   /$$$$$$  |/$$$$$$$ |
+$$ $$ $$/$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$    $$ |$$ |  $$/ $$      \       $$ |  $$ |$$ |  $$ |$$ |  $$ | __ $$    $$ |$$ |  $$ |
+$$ |$$$/ $$ |$$ \__$$ |$$ \__$$ |$$ \__$$ |$$$$$$$$/ $$ |       $$$$$$  |      $$ \__$$ |$$ |  $$ |$$ |  $$ |/  |$$$$$$$$/ $$ \__$$ |
+$$ | $/  $$ |$$    $$/ $$    $$ |$$    $$ |$$       |$$ |      /     $$/       $$    $$/ $$ |  $$ |$$ |  $$  $$/ $$       |$$    $$ |
+$$/      $$/  $$$$$$/   $$$$$$$/  $$$$$$$/  $$$$$$$/ $$/       $$$$$$$/         $$$$$$/  $$/   $$/ $$/    $$$$/   $$$$$$$/  $$$$$$$/ 
+```
+
 Welcome to the Modders United Documentation where everything related to Modders United and modding games is here! Modders United is a Meta Horizon based community focused on creating mods and tools for VR games.       Here you can connect with like minded developers and get help when you need it. Modders United has creators who build mods for almost every VR game in existence!
 
 TABLE OF CONTENTS:
