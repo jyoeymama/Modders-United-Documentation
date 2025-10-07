@@ -38,4 +38,56 @@ I have modded vr games like gorilla tag and yeeps (and a handful of gorilla tag 
 
 HOW TO DOWNLOAD THE APK OF A VR GAME:
 
+Downloading a vr game is a complicated process that I had to learn over quite a while. The first thing you want to do in downloading a vr game (or apk of a game) is to run this command in powershell after connecting your headset to your pc or laptop. Also make sure that you have developer mode enabled on your account.
+
+```
+adb devices
+```
+
+if you see and output like this then you have sucessfully connected your headset to your pc:
+
+```
+Device: HK1CAW123NWDN432
+```
+
+Once you get that glorius output showing that you connected your headset, its time to find the game you want to download the apk of onto your pc using the command below.
+
+```
+adb shell pm list packages
+```
+
+Here is your expected output for that command (it will look crazy but I will explain what you are seeiing.) These are a list of example packages below:
+
+```
+package:com.oculus.home
+package:com.oculus.systemutilities
+package:com.oculus.vrshell
+package:com.oculus.browser
+package:com.oculus.socialplatform
+package:com.oculus.horizon
+package:com.oculus.mediaplayer
+package:com.oculus.tv
+package:com.oculus.questlauncher
+package:com.google.android.gms
+package:com.google.android.youtube
+package:com.example.mycustomapp
+```
+
+Then, once you get that output; that output will show you all the packages or apps on your headset. To find the vr game that you would like to mod, look for keywords in the package that could show that the certian package that you need is the package (or apk) of the game that you need to download. For example if I want to download a game called jyomama28isthebest then I would try to look for a package named Com.jyomama28isthebest or something. Then once you have all that down, its time to install the apk onto your pc!
+
+To find the package location, run this command below:
+
+```
+adb shell pm path <package_name>
+adb pull /data/app/com.jyomama28isthebest-1/base.apk C:\Users\Jyomama28\Desktop
+```
+
+once you run that command, you should see an output sort of like this (it varies for every package or game.):
+
+```
+package:/data/app/com.jyomama28isthebest-1/base.apk
+```
+
+After downloading your apk (it will be named base.apk at the start but thats totally normal) you can rename it to anything you like! just make sure to change the end from .apk to .zip and there you will have all the asset files and source code of that certian game! You have sucessfully installed an apk of a game onto your pc! :) Remember, have fun and happy hacking!
+
 RANDOM:
