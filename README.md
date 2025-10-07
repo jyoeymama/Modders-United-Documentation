@@ -107,11 +107,7 @@ HUNTING FOR EXPLOITS AND VULNS FOR THE VR:
 
 RANDOM:
 
-JYOMAMA28 IS THE KING OF VR HACKING! MODDERS UNITED IS ON TOP!
-
 <p align="center">
-  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="flame" title="Flame" height="32" />
   <strong style="margin:0 8px">JYOMAMA28 IS THE KING OF VR HACKING! MODDERS UNITED IS ON TOP!</strong>
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="spark" title="Spark" height="32" />
 </p>
 
