@@ -10,7 +10,8 @@ TABLE OF CONTENTS:
 3. Vr games with no anticheat
 4. Vr games that I have modded
 5. How to download an APK of a vr game
-6. Random
+6. Hunting for exploits and vulns for the vr
+7. Random
 
 1. OUR WEBSITE
 
@@ -89,6 +90,8 @@ package:/data/app/com.jyomama28isthebest-1/base.apk
 ```
 
 After downloading your apk (it will be named base.apk at the start but thats totally normal) you can rename it to anything you like! just make sure to change the end from .apk to .zip and there you will have all the asset files and source code of that certian game! You have sucessfully installed an apk of a game onto your pc! :) Remember, have fun and happy hacking!
+
+HUNTING FOR EXPLOITS AND VULNS FOR THE VR:
 
 RANDOM:
 
