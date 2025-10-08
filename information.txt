@@ -24,10 +24,10 @@ Bang! Bang!                     .'/       |
 Modders United:                .:/        |
 Hacking Games Since 2025!      :/_________|
                                            
+Sources for vulnrabillites can be found at this repo: https://github.com/QuestEscape/exploit
 
-
-# Creating a condensed VR modding playbook text file for the user.
-content = """VR Modding & Local Instrumentation Playbook (Condensed)
+# A condensed VR modding playbook text file for the user.
+VR Modding & Local Instrumentation Playbook (Condensed)
 -------------------------------------------------------
 Quick glossary:
 - Mono/Managed: Unity games with Assembly-CSharp.dll (editable C#).
@@ -129,6 +129,8 @@ while true; do /data/local/tmp/exploit; done
 
 
 6) csharp basic bepinex plugin
+
+```
 using BepInEx;
 using UnityEngine;
 
@@ -143,6 +145,7 @@ public class VRTestMod : BaseUnityPlugin
         }
     }
 }
+```
 
 7) Kernal In Depth Definition
 
@@ -150,9 +153,7 @@ In a computer, the kernel is the central, most privileged part of the operating 
 
 8) Fuzzing and History of Previous Exploits
 
-from pathlib import Path
-
-text_content = """CVE-2018-9568 and CVE-2019-2215 Summary + Fuzzer Overview
+CVE-2018-9568 and CVE-2019-2215 Summary + Fuzzer Overview
 
 CVE-2018-9568: A type confusion/memory corruption issue in sk_clone_lock() within net/core/sock.c in the Linux kernel. Reported by Andrej Nemec in 2018. Found via code auditing and kernel inspection. The bug involved unsafe socket cloning leading to possible memory misuse. Fixed by kernel commit 9d538fa60bad4f7b23193c89e843797a1cf71ef3.
 
@@ -178,9 +179,3 @@ Quest OS is based on Android with custom VR and IPC layers. Effective fuzzing in
 Ethical research approach: Focus on responsible disclosure, testing only owned devices or authorized programs (e.g., Meta’s bug bounty). Fuzzing and auditing help identify and report vulnerabilities safely before they are exploited.
 
 -- End of Summary --
-"""
-
-file_path = Path("/mnt/data/CVE_Fuzzing_Summary.txt")
-file_path.write_text(text_content)
-
-file_path
