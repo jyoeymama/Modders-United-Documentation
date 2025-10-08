@@ -26,11 +26,11 @@ TABLE OF CONTENTS:
 7. Random
 8. More About Information.txt
 
-Number 1. OUR WEBSITE
+OUR WEBSITE
 
 For our website, plesae go to this link: https://jyoeymama.github.io/Modders-United-Documentation/
 
-2. HOW TO START MODDING IN VR
+HOW TO START MODDING IN VR
 
 Vr modding is some of the most fun challenge that I have ever had. Modding in vr is very complicated but can be done! Mods in games like gorilla tag are already popular and open source! Modding a game in vr usually begins with have some basic knowledge of c# and c++. Most vr games these days are coded in c# and c++, therefore you must make your mods in the same language as the game! When I start modding a game of my choiche I usually like to make sure that I have 1. a computer or laptop, 2. a usb 3.0 cable, and 3. any vr headset of your choice. The usb 3.0 cable is on amazon for as low as $15. Here is an example picture of the right cable that you need (it must have this weird end). When I have all that ready I make sure to have sidequest installed as well as a modding framework of your choice (I personally use questpatcher) Once you have sidequest installed as well as a modding framework, its time to start modding! creating a mod is a difficult task but I have found that looking at someones premade mod helps a lot for me to better understand where to start making my mod and making the main works of my mod. Then I just take that mod and compile it into a .dll or a .qmod and boom! you have sucessfully modded a vr game! Remember, this works on almost any vr game! Goodluck and happy modding!
 
@@ -112,3 +112,6 @@ RANDOM:
   <strong style="margin:0 8px">JYOMAMA28 IS THE KING OF VR HACKING! MODDERS UNITED IS ON TOP!</strong>
 </p>
 
+MORE ABOUT INFORMATION.TXT
+
+Information.txt is a quick glossary that sums up everything in this repo. It explains about old vulnrabillites, hunting for exploits (using fuzzers), and much more! 
