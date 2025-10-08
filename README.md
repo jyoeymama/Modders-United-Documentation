@@ -24,9 +24,9 @@ TABLE OF CONTENTS:
 5. How to download an APK of a vr game
 6. Hunting for exploits and vulns for the vr
 7. Random
+8. More About Information.txt
 
-
-1. OUR WEBSITE
+Number 1. OUR WEBSITE
 
 For our website, plesae go to this link: https://jyoeymama.github.io/Modders-United-Documentation/
 
