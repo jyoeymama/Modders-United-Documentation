@@ -128,7 +128,7 @@ Compile this with an aarch64 android toolkit, and run it from /data/local/tmp/;
 while true; do /data/local/tmp/exploit; done
 
 
-6) csharp basic bepinex plugin
+6) Csharp Basic BepInEx Plugin
 
 ```
 using BepInEx;
@@ -179,3 +179,4 @@ Quest OS is based on Android with custom VR and IPC layers. Effective fuzzing in
 Ethical research approach: Focus on responsible disclosure, testing only owned devices or authorized programs (e.g., Meta’s bug bounty). Fuzzing and auditing help identify and report vulnerabilities safely before they are exploited.
 
 -- End of Summary --
+
