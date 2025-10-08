@@ -1,0 +1,186 @@
+ __       __                  __        __                                      __    __            __    __                      __ 
+/  \     /  |                /  |      /  |                                    /  |  /  |          /  |  /  |                    /  |
+$$  \   /$$ |  ______    ____$$ |  ____$$ |  ______    ______    _______       $$ |  $$ | _______  $$/  _$$ |_     ______    ____$$ |
+$$$  \ /$$$ | /      \  /    $$ | /    $$ | /      \  /      \  /       |      $$ |  $$ |/       \ /  |/ $$   |   /      \  /    $$ |
+$$$$  /$$$$ |/$$$$$$  |/$$$$$$$ |/$$$$$$$ |/$$$$$$  |/$$$$$$  |/$$$$$$$/       $$ |  $$ |$$$$$$$  |$$ |$$$$$$/   /$$$$$$  |/$$$$$$$ |
+$$ $$ $$/$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$    $$ |$$ |  $$/ $$      \       $$ |  $$ |$$ |  $$ |$$ |  $$ | __ $$    $$ |$$ |  $$ |
+$$ |$$$/ $$ |$$ \__$$ |$$ \__$$ |$$ \__$$ |$$$$$$$$/ $$ |       $$$$$$  |      $$ \__$$ |$$ |  $$ |$$ |  $$ |/  |$$$$$$$$/ $$ \__$$ |
+$$ | $/  $$ |$$    $$/ $$    $$ |$$    $$ |$$       |$$ |      /     $$/       $$    $$/ $$ |  $$ |$$ |  $$  $$/ $$       |$$    $$ |
+$$/      $$/  $$$$$$/   $$$$$$$/  $$$$$$$/  $$$$$$$/ $$/       $$$$$$$/         $$$$$$/  $$/   $$/ $$/    $$$$/   $$$$$$$/  $$$$$$$/ 
+
+#OPERATIONTAKEOVER
+  (                                 _
+   )                               /=>
+  (  +____________________/\/\___ / /|
+   .''._____________'._____      / /|/\
+  : () :              :\ ----\|    \ )
+   '..'______________.'0|----|      \
+                    0_0/____/        \
+                        |----    /----\
+                       || -\\ --|      \
+                       ||   || ||\      \
+                        \\____// '|      \
+Bang! Bang!                     .'/       |
+Modders United:                .:/        |
+Hacking Games Since 2025!      :/_________|
+                                           
+
+
+# Creating a condensed VR modding playbook text file for the user.
+content = """VR Modding & Local Instrumentation Playbook (Condensed)
+-------------------------------------------------------
+Quick glossary:
+- Mono/Managed: Unity games with Assembly-CSharp.dll (editable C#).
+- IL2CPP: Unity compiles managed code to native (GameAssembly.dll / libil2cpp.so + global-metadata.dat).
+- BepInEx: Popular Unity mod loader for managed games (PC).
+- Il2CppDumper / Il2CppInspector: Tools that map IL2CPP metadata to native addresses.
+- Frida + frida-il2cpp-bridge: Runtime hooking on Android/Quest without repacking.
+- ReClass / Cheat Engine: Memory inspection and live editing on PC.
+
+Essential tools (install before starting)
+- PC (managed): dnSpy/dnSpyEx, BepInEx, Harmony, Visual Studio.
+- IL2CPP (PC/Quest): Il2CppDumper or Il2CppInspector, IDA Pro or Ghidra, MinHook/x64dbg (Windows), Frida (Android).
+- APK/Quest: adb, Apktool, jadx, apksigner/zipalign, SideQuest.
+- General: hex editor, cheat engine (PC), ReClass.NET.
+
+1) Identify the build type (fast)
+- Look in the game folder:
+  - If you see Assembly-CSharp.dll → Managed/Mono path.
+  - If you see GameAssembly.dll, libil2cpp.so and global-metadata.dat → IL2CPP path.
+
+2) Managed / Mono (easiest)
+- Backup game folder.
+- Install BepInEx in the game root.
+- Inspect Assembly-CSharp.dll with dnSpy.
+- Option A: Edit DLL directly (risky). Option B (recommended): write a BepInEx plugin.
+- Minimal BepInEx plugin example:
+
+3)
+- Android / mobile reverse engineering & analysis 
+- MobSF (Mobile Security Framework) — automated static/dynamic analyzer for Android/iOS APKs; very practical for triage. 
+cyberlands.io
+- jadx, apktool, JADX GUI, smali — decompilers and tooling for inspecting APKs and instrumentation. Use them to learn app internals and identify insecure assumptions. 
+- TCM Security
+- Frida — dynamic instrumentation for runtime analysis.
+
+4) Todo
+- Hunt for exploits within the kernal and try to gain root access
+- Try to get a terminal onto my headset
+- Test random things
+
+5) Exploits
+
+This is a kernel exploit for the vulnerability known as WrongZone (or CVE-2018-9568).
+Oculus Quest
+
+The Oculus Quest is vulnerable up to version 256550.6810.0. This commit fixes the vulnerability and also introduces 2 mitigations: Kernel ASLR (KASLR) and Privileged Access Never (PAN).
+
+We have manually confirmed that 333700.2680.0 and 333700.3370.0 also contain the fix and mitigations. Nevertheless, it is possible to downgrade to the vulnerable version by sideloading this update.
+Build
+
+To compile this project, you will need to grab the Android NDK and modify the path in the Makefile.
+Execute
+
+The exploit succeeds once in a blue moon on a real device, for a reason we have yet to understand. It gets better on the emulator, about once every 10 tries. To make it even more painful, failed attempts will crash the device, but at least it should reboot automatically after about 5 seconds.
+References
+
+    https://github.com/ThomasKing2014/slides/blob/master/Building%20universal%20Android%20rooting%20with%20a%20type%20confusion%20vulnerability.pdf
+    http://c0reteam.org/2019/07/12/CVE-2018-9568
+    https://www.jishuwen.com/d/2TSG
+
+This folder contains an exploit for CVE-2019-2215, exploiting a bug in Binder (RIP BeOS)
+
+The quest linux kernel code can be pulled from https://github.com/facebookincubator/oculus-linux-kernel.
+
+The Oculus Quest is vulnerable up to version 3965200061700000. This and other vulnerabilites were patched by https://github.com/facebookincubator/oculus-linux-kernel/commit/84f9a63a81a226cc5e8c7c071a5cd077ef6445a3
+
+Although this tree is based on MSM 4.4, it is not current and contained this vulnerability among others. The MSM 4.4 tree brought in the fix in early/mid 2018 from upstream. The bug was found by syzkaller in early 2018. The P0 post linked to below covers how the fix was not included in Wahoo since it did not get a CVE at the time. It's suspected that this was being exploited in the wild by the NSO group. Facebook is coincidentally suing NSO right now regarding that matter.
+
+The binder bug is a fairly trivial UAF. In the vulnerable versions of the driver, it's possible to use epoll() to wait on events from a binder client, but the driver also allows clients to release the underlying data structure that epoll is waiting from/to. When releaing the epoll it will mangle the lock in the released buffer.
+
+For exploitation, the P0 PoC uses a method that exploits in-flight IOVEC structures (see https://bugs.chromium.org/p/project-zero/issues/detail?id=1942).
+
+This method was previously published by Di Shen at KeenLab (https://www.blackhat.com/docs/eu-16/materials/eu-16-Shen-Rooting-Every-Android-From-Extension-To-Exploitation-wp.pdf)
+
+This exploit applies the same method. The in-flight iovecs are flexible -- they can be allocated at variable lengths for matching the size of any Use-After-Free.
+
+It's also possible to use blocking and other features on pipes and sockets to modify state in a controlled manner. Smashing data in the iovec can be used for arbitrary reads as well as arbitrary writes.
+
+In the P0 PoC, a pointer to the current task's 'task_struct' happens to lie at the end of the binder_thread, and that exploit reads it out before writing to it. For the Oculus tree, the binder code is much older and doesn't contain that member variable.
+
+The way the UAF corruption works with epoll also lends well for exploitation. When epoll's reference to the thread is released, the spinlock routines will leave behind a self-referential pointer. This can be used to create a write into the iovec to update the in-flight structure with arbitrary values.
+
+For this exploit the flow for the corruption is to:
+
+    Create the UAF condition
+    Trigger the corruption, leaving behind the self referencing pointer in the IOVEC
+    Write an arbitrary destination (in this case the TTBR1 page table entry)
+    Write an 8-byte value to that destination (rwx/rwx permissions to kernel physical memory)
+
+This lets every linux process have rwx/rwx memory access to kernel memory.
+
+The version of the binder driver in the quest kernel had a further complication as well. Without a transaction ready to read, the poll will happen on a 'binder_proc' structure, and not a 'binder_thread'. Theres no BINDER_PROC_EXIT, as there is with BINDER_THREAD_EXIT. The exploit runs some code in force_thread() to set up the binder thread to poll on the correct data structure.
+
+====
+
+Compile this with an aarch64 android toolkit, and run it from /data/local/tmp/;
+
+while true; do /data/local/tmp/exploit; done
+
+
+6) csharp basic bepinex plugin
+using BepInEx;
+using UnityEngine;
+
+[BepInPlugin("com.you.vrtest","VR Test Mod","0.1.0")]
+public class VRTestMod : BaseUnityPlugin
+{
+    void Awake() { Logger.LogInfo("VRTestMod loaded"); }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K)) {
+            Debug.Log("Player pos: " + Camera.main.transform.position);
+        }
+    }
+}
+
+7) Kernal In Depth Definition
+
+In a computer, the kernel is the central, most privileged part of the operating system that acts as the interface between the system's hardware and software. It manages core system resources such as memory, CPU, and input/output devices, handling requests from applications and allocating resources efficiently and securely. A kernel has unrestricted access to the hardware in "kernel mode," while applications run in the more restricted "user mode," with a kernel-level crash potentially causing the entire system to halt.  
+
+8) Fuzzing and History of Previous Exploits
+
+from pathlib import Path
+
+text_content = """CVE-2018-9568 and CVE-2019-2215 Summary + Fuzzer Overview
+
+CVE-2018-9568: A type confusion/memory corruption issue in sk_clone_lock() within net/core/sock.c in the Linux kernel. Reported by Andrej Nemec in 2018. Found via code auditing and kernel inspection. The bug involved unsafe socket cloning leading to possible memory misuse. Fixed by kernel commit 9d538fa60bad4f7b23193c89e843797a1cf71ef3.
+
+CVE-2019-2215 (Bad Binder): A use-after-free bug in the Android Binder driver (binder.c). Discovered originally by fuzzing tools such as syzkaller and KASAN (Kernel Address Sanitizer). The bug occurred when epoll referenced a freed binder_thread structure, allowing memory corruption and privilege escalation. Project Zero reported active exploitation in the wild in 2019. Fixed upstream earlier but missing from many OEM kernels.
+
+In simple terms: CVE-2018-9568 was found by manual code review; CVE-2019-2215 by automated fuzzing. Both affected Linux/Android kernels, showing how kernel-level bugs can arise from memory mismanagement.
+
+Fuzzers for Android/Quest Research:
+- libFuzzer: integrated with Android’s build system, good for native code testing.
+- AFL/AFL++: mutation-based, requires harnesses for specific targets.
+- Fuzzware: designed for firmware fuzzing with MMIO modeling.
+- syzkaller: coverage-guided kernel fuzzer that found many Android/Linux bugs.
+- QEMU-based fuzzers: emulate hardware and drivers, suitable for kernel fuzzing.
+- Custom RPC fuzzers: can target IPC or VR runtime interfaces on Quest devices.
+
+Quest-specific fuzzing considerations:
+Quest OS is based on Android with custom VR and IPC layers. Effective fuzzing involves:
+1. Harnessing native or service binaries with libFuzzer or AFL++.
+2. Using coverage feedback to maximize code path discovery.
+3. Emulating or mocking sensors/peripherals for hardware-linked logic.
+4. Targeting IPC mechanisms for malformed/mutated message handling tests.
+
+Ethical research approach: Focus on responsible disclosure, testing only owned devices or authorized programs (e.g., Meta’s bug bounty). Fuzzing and auditing help identify and report vulnerabilities safely before they are exploited.
+
+-- End of Summary --
+"""
+
+file_path = Path("/mnt/data/CVE_Fuzzing_Summary.txt")
+file_path.write_text(text_content)
+
+file_path
