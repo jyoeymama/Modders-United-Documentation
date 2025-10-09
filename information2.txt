@@ -1,0 +1,247 @@
+# Frida Quest 2 — Complete Setup Guide
+
+## Quick Setup (frida-server 17.3.2)
+
+**Objective:** Deploy and run `frida-server` on Quest 2, verify connection from PC.
+
+---
+
+## Prerequisites
+
+- `frida-server-17.3.2-android-arm64.xz` (downloaded and extracted)
+- Developer Mode enabled on Quest 2
+- USB debugging enabled
+- ADB installed on PC
+
+---
+
+## Installation Commands (PowerShell)
+
+### 1. Verify Extracted Binary
+```powershell
+ls '.\frida-server-17.3.2-android-arm64\'
+```
+
+### 2. Confirm Device Connection
+```powershell
+adb devices
+```
+
+### 3. Deploy Binary to Device
+```powershell
+adb push .\frida-server-17.3.2-android-arm64\frida-server /data/local/tmp/
+```
+
+### 4. Set Executable Permissions
+```powershell
+adb shell chmod +x /data/local/tmp/frida-server
+```
+
+### 5. Launch Frida Server
+```powershell
+adb shell /data/local/tmp/frida-server &
+```
+
+### 6. Verify Server Status (Device-Side)
+```powershell
+adb shell pidof frida-server
+```
+
+### 7. Verify Connection (PC-Side)
+```powershell
+frida-ps -U
+```
+
+---
+
+## Troubleshooting
+
+### Unauthorized Device
+- **Issue:** `adb devices` shows `unauthorized`
+- **Solution:** Accept USB debugging prompt in headset
+
+### Server Not Running
+```powershell
+adb shell pkill frida-server
+adb shell /data/local/tmp/frida-server &
+adb shell pidof frida-server
+```
+
+### Permission Verification
+```powershell
+adb shell ls -l /data/local/tmp/frida-server
+```
+Expected output: `-rwxr-xr-x` (executable bits set)
+
+### Client-Server Version Mismatch
+- **Issue:** `frida-ps -U` times out
+- **Solution:** Ensure PC Frida version matches server (17.3.2)
+```powershell
+frida --version
+```
+
+---
+
+## Attachment Methods
+
+### Option 1: Attach to Running Process (Recommended)
+
+**List Active Processes:**
+```powershell
+frida-ps -U
+```
+
+**Attach by Package Name:**
+```powershell
+frida -U -n com.target.package -l attach.js
+```
+
+**Attach by PID:**
+```powershell
+frida -U -p <PID> -l attach.js
+```
+
+### Option 2: Spawn with Frida Gadget (Non-Rooted)
+
+**Requirements:**
+- Download matching gadget: `gadget-android-arm64.so` (v17.3.2)
+- Source: https://github.com/frida/frida/releases
+
+**Spawn Command:**
+```powershell
+frida -U -f com.target.package --gadget "C:\path\to\gadget-android-arm64.so" -l attach.js
+```
+
+### Option 3: Debuggable APK (Development)
+
+**Build Configuration:**
+- Enable Development Build in Unity
+- Enable Script Debugging
+- Generate debuggable APK
+
+**Deployment:**
+```powershell
+adb install -r path\to\debuggable-app.apk
+adb shell monkey -p your.package.name 1
+adb shell pidof your.package.name
+frida -U -p <PID> -l attach.js
+```
+
+---
+
+## IL2CPP Bridge Integration
+
+### Installation
+```bash
+npm install frida-il2cpp-bridge
+```
+
+### Example Script (attach.js)
+```javascript
+import "frida-il2cpp-bridge";
+
+async function main() {
+  await Il2Cpp.initialize();
+  console.log(`[+] Attached to ${Il2Cpp.application.name}`);
+  
+  const asm = Il2Cpp.domain.assembly("Assembly-CSharp");
+  asm.image.classes.forEach(c => console.log(c.name));
+}
+
+main();
+```
+
+### Execution
+```powershell
+frida -U -f com.your.app.package -l attach.js --no-pause
+```
+
+---
+
+## Common Access Issues
+
+### Unable to Access Process
+
+**Cause:** Quest's Android implementation enforces SELinux/ptrace restrictions. The `shell` user (running frida-server) may lack permission to ptrace certain app processes.
+
+**Solutions:**
+
+1. **Use Debuggable Builds** — Applications with debuggable flag allow debugging/ptrace
+2. **Frida Gadget Injection** — Bypasses ptrace restrictions by injecting at startup
+3. **Server-Side Logic** — Move security-critical operations off-client
+
+### System Server Access Denied
+
+This is expected behavior on non-rooted devices. System processes are protected by kernel-level restrictions independent of application obfuscation.
+
+---
+
+## Security Considerations
+
+### Understanding OS-Level Protections
+
+- **Process Isolation:** Android runs apps under different user contexts
+- **Ptrace Restrictions:** Kernel limits which processes can debug others
+- **SELinux Policies:** Additional cross-process debugging restrictions
+- **/proc Hardening:** Limited access to process information
+
+### Obfuscation vs Runtime Protection
+
+**Code Obfuscation (ProGuard/R8/IL2CPP):**
+- Protects intellectual property
+- Increases reverse-engineering difficulty
+- Does not prevent runtime attachment
+
+**Runtime Protection:**
+- Integrity checks and tamper detection
+- Anti-debug mechanisms
+- Server-side verification for critical operations
+
+### Development Best Practices
+
+**Symbol Stripping:**
+- Android: Configure R8/ProGuard minification
+- Unity: Enable symbol stripping in IL2CPP builds
+
+**Defensive Measures:**
+- Detect binary modifications
+- Implement server-side authority for sensitive logic
+- Provide controlled test environments for security research
+
+---
+
+## Version Compatibility
+
+| Component | Version |
+|-----------|---------|
+| frida-server | 17.3.2 |
+| Frida Client | 17.3.2 |
+| Architecture | android-arm64 |
+
+**Critical:** Client and server versions must match exactly.
+
+---
+
+## Quick Reference
+
+**Check Frida Version:**
+```powershell
+frida --version
+```
+
+**List Processes:**
+```powershell
+frida-ps -U
+```
+
+**Kill Server:**
+```powershell
+adb shell pkill frida-server
+```
+
+**Restart Server:**
+```powershell
+adb shell /data/local/tmp/frida-server &
+```
+
+---
