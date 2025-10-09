@@ -24,7 +24,7 @@ Bang! Bang!                     .'/       |
 Modders United:                .:/        |
 Hacking Games Since 2025!      :/_________|
 
-Frida Quest 2 — Complete Setup Guide
+Frida Quest 2, 3, and 3s — Complete Setup Guide
 
 Quick Setup (frida-server 17.3.2)
 
