@@ -24,7 +24,7 @@ TABLE OF CONTENTS:
 5. How to download an APK of a vr game
 6. Hunting for exploits and vulns for the vr
 7. Random
-8. More About Information.txt
+8. More About Information.txt and information2.txt
 
 OUR WEBSITE
 
