@@ -25,6 +25,7 @@ TABLE OF CONTENTS:
 6. Hunting for exploits and vulns for the vr
 7. Random
 8. More About Information.txt and information2.txt
+9. Commands for hacking the vr
 
 OUR WEBSITE
 
@@ -115,3 +116,54 @@ RANDOM:
 MORE ABOUT INFORMATION.TXT
 
 Information.txt is a quick glossary that sums up everything in this repo. It explains about old vulnrabillites, hunting for exploits (using fuzzers), and much more! 
+
+COMMANDS FOR HACKING THE VR:
+
+```
+adb devices
+```
+adb devices list the devices connected to your pc/laptop. Must have developer mode enabled on your account.
+
+```
+adb shell pm list packages
+```
+
+this will list all the packages that are found on your device.
+
+```
+adb pull <package name>
+```
+
+this will pull the package/app onto your pc/laptop.
+
+THESE NEXT COMMANDS USES A TOOL CALLED FRIDA, DOWNLOAD FRIDA AT THIS LINK: https://github.com/frida/frida
+
+```
+frida -U -f com.your.app.package -l # (yourfile.anylanguage) for example attach.js
+```
+This will let you try to attach other custom scripts onto a package or app
+
+```
+frida-ps -U
+```
+
+This will show you all the packages or apps that you have on your device. This should show you a PID number and the name of the package or app.
+
+```
+frida -U -p <YOURPIDNUMBER> -l # (yourfile.anylanguage) for example attach.js
+```
+
+This will let you try to attach a custom script using the PID number.
+
+```
+adb shell example -p com.your.package.app 1
+```
+
+This will download your package/app onto your pc. 
+
+```
+adb shell pidof com.your.package.app
+```
+
+This will show you the PID number of your package or app using frida.
+
