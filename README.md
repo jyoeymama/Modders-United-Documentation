@@ -167,3 +167,5 @@ adb shell pidof com.your.package.app
 
 This will show you the PID number of your package or app using frida.
 
+All of these commands are also avalible in the form of a .txt file named commands.txt!
+
