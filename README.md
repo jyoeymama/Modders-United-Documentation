@@ -113,6 +113,11 @@ RANDOM:
   <strong style="margin:0 8px">JYOMAMA28 IS THE KING OF VR HACKING! MODDERS UNITED IS ON TOP!</strong>
 </p>
 
+
+<img width="405" height="190" alt="Screenshot 2025-10-15 202026" src="https://github.com/user-attachments/assets/a1091018-8f05-4815-900e-eeea72cf7c49" />
+
+
+
 MORE ABOUT INFORMATION.TXT
 
 Information.txt is a quick glossary that sums up everything in this repo. It explains about old vulnrabillites, hunting for exploits (using fuzzers), and much more! 
